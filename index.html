@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydro-Yemen | 10M Space-Driven Irrigation Intelligence</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['"Plus Jakarta Sans"', '"Cairo"', 'sans-serif'] 
+                    },
+                    colors: {
+                        brand: { 50: '#f0fdf4', 500: '#10b981', 600: '#059669', 900: '#064e3b', dark: '#0f172a' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .lang-ar { display: none; }
+        body.arabic-mode .lang-en { display: none; }
+        body.arabic-mode .lang-ar { display: block; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white" id="bodyRoot">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xl">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-white">Hydro<span class="text-emerald-400">-Yemen</span></span>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#components" class="hover:text-emerald-400 transition lang-en">Ecosystem</a>
+                <a href="#components" class="hover:text-emerald-400 transition lang-ar">المكونات</a>
+                
+                <a href="#irrinow" class="hover:text-emerald-400 transition lang-en">IrriNow Briefing</a>
+                <a href="#irrinow" class="hover:text-emerald-400 transition lang-ar">الإحاطة الصباحية</a>
+                
+                <a href="#science" class="hover:text-emerald-400 transition lang-en">10M Energy Core</a>
+                <a href="#science" class="hover:text-emerald-400 transition lang-ar">محرك الـ 10 أمتار</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleLanguage()" class="bg-slate-900 border border-slate-700 hover:bg-slate-800 text-emerald-400 font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-2">
+                    <i class="fa-solid fa-globe"></i> <span id="langToggleText">AR / EN</span>
+                </button>
+                <a href="#irrinow" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 lang-en">
+                    Launch IrriNow
+                </a>
+                <a href="#irrinow" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-emerald-500/20 lang-ar">
+                    ابدأ إري ناو
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-44 md:pb-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.15),rgba(255,255,255,0))]"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-8">
+                <i class="fa-solid fa-satellite"></i> <span class="lang-en">10-Meter Resolution Spatial Intelligence</span>
+                <span class="lang-ar">ذكاء فضائي بدقة 10 أمتار لكل بكسل</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight max-w-4xl mx-auto leading-[1.1] mb-6 lang-en">
+                Translating 10M Space Data into <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Precise Water Intelligence</span>
+            </h1>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-[1.1] mb-6 lang-ar">
+                نترجم بيانات الفضاء بدقة <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">10 أمتار إلى رؤى مائية دقيقة</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-normal lang-en">
+                Tailored for arid and semi-arid climates. Delivering daily sunrise briefings and predictive water forecasting down to exact field polygons.
+            </p>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-normal lang-ar">
+                مصمم خصيصاً للمناطق الجافة. نقدم إحاطة فجرية يومية وتخطيطاً استباقياً لأقسام مزرعتك بدقة متناهية.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#irrinow" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-4 rounded-xl transition flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/10">
+                    <span class="lang-en">Explore IrriNow</span> <span class="lang-ar">استكشف إري ناو</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#science" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold px-8 py-4 rounded-xl transition">
+                    <span class="lang-en">10M Energy Core</span> <span class="lang-ar">محرك تدفق الطاقة</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 Core Components Ecosystem -->
+    <section id="components" class="py-24 bg-slate-900/50 border-t border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight mb-4 lang-en">The 4-Pillar Ecosystem</h2>
+                <h2 class="text-3xl font-bold tracking-tight mb-4 lang-ar">منظومة الأركان الأربعة المتكاملة</h2>
+                <p class="text-slate-400 lang-en">Engineered for absolute water efficiency and localized Middle East & Africa climates.</p>
+                <p class="text-slate-400 lang-ar">مصممة خصيصاً لتحقيق كفاءة مائية مطلقة لتتناسب مع مناخ الشرق الأوسط وإفريقيا.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Component 1: IrriNow Dawn Briefing -->
+                <div id="irrinow" class="bg-slate-900 border border-emerald-500/30 p-8 rounded-2xl relative flex flex-col justify-between hover:border-emerald-500/60 transition group">
+                    <div class="absolute top-6 right-6 text-emerald-400 text-xs font-bold px-2.5 py-1 bg-emerald-500/10 rounded-md">Pillar 01</div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white lang-en">Daily Dawn Briefing</h3>
+                        <h3 class="text-xl font-bold mb-3 text-white lang-ar">الإحاطة الصباحية</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6 lang-en">Before sunrise, get a section-by-section breakdown of true root-zone moisture and daily tasks straight to your phone.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6 lang-ar">قبل إشراقة الصباح، يرسل التطبيق إحاطة دقيقة عن حالة المزرعة لكل قسم مباشرة إلى هاتفك كخطة عمل فجرية.</p>
+                    </div>
+                    <span class="text-emerald-400 text-xs font-bold flex items-center gap-1"><span class="lang-en">Dawn Action Plan</span><span class="lang-ar">خطة عمل فجرية</span> <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                </div>
+
+                <!-- Component 2: 7-Day Predictive Planning -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl relative flex flex-col justify-between hover:border-slate-700 transition group">
+                    <div class="absolute top-6 right-6 text-slate-400 text-xs font-bold px-2.5 py-1 bg-slate-800 rounded-md">Pillar 02</div>
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 text-xl mb-6 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-calendar-week"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white lang-en">7-Day Outlook</h3>
+                        <h3 class="text-xl font-bold mb-3 text-white lang-ar">التخطيط الأسبوعي</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6 lang-en">Proactive weekly forecasting blending weather dynamics with crop growth rates to anticipate water consumption.</p>
