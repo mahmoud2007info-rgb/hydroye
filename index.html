@@ -1,1236 +1,1270 @@
-```html
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Hydro-Yemen | إدارة المياه الذكية</title>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-
-        /* =========================
-           GENERAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Cairo", sans-serif;
-            background: #f7f8f3;
-            color: #26352c;
-            line-height: 1.8;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: min(1120px, 92%);
-            margin: auto;
-        }
-
-
-        /* =========================
-           COLORS
-        ========================= */
-
-        :root {
-            --green: #3f6b4f;
-            --green-dark: #294a36;
-            --green-light: #e7efe6;
-            --olive: #71845a;
-            --sand: #e8dfc8;
-            --cream: #f7f8f3;
-            --white: #ffffff;
-            --text: #26352c;
-            --muted: #6d786f;
-            --border: #e1e6df;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(247, 248, 243, 0.94);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .navbar {
-            min-height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            color: var(--green-dark);
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: var(--green);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-text small {
-            display: block;
-            font-size: 10px;
-            color: var(--muted);
-            font-weight: 500;
-            margin-top: -4px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            color: #536057;
-            font-size: 14px;
-        }
-
-        .nav-links a {
-            transition: .25s;
-        }
-
-        .nav-links a:hover {
-            color: var(--green);
-        }
-
-        .nav-button {
-            background: var(--green);
-            color: white;
-            padding: 9px 18px;
-            border-radius: 9px;
-            font-size: 13px;
-            font-weight: 700;
-            transition: .25s;
-        }
-
-        .nav-button:hover {
-            background: var(--green-dark);
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            padding: 100px 0 90px;
-            background:
-                radial-gradient(circle at 10% 20%, rgba(113,132,90,.12), transparent 30%),
-                radial-gradient(circle at 90% 80%, rgba(63,107,79,.08), transparent 35%),
-                var(--cream);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.05fr .95fr;
-            align-items: center;
-            gap: 70px;
-        }
-
-        .hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--green-light);
-            color: var(--green);
-            padding: 7px 13px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .hero-label span {
-            width: 7px;
-            height: 7px;
-            background: #6c9a69;
-            border-radius: 50%;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 5vw, 62px);
-            line-height: 1.25;
-            color: var(--green-dark);
-            margin-bottom: 22px;
-            font-weight: 800;
-        }
-
-        .hero h1 strong {
-            color: var(--green);
-        }
-
-        .hero-description {
-            color: var(--muted);
-            font-size: 16px;
-            max-width: 600px;
-            margin-bottom: 32px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--green);
-            color: white;
-            padding: 13px 24px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 700;
-            transition: .25s;
-        }
-
-        .btn-primary:hover {
-            background: var(--green-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            border: 1px solid #ccd5cb;
-            color: var(--green-dark);
-            padding: 13px 24px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 700;
-            transition: .25s;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-        }
-
-
-        /* =========================
-           HERO VISUAL
-        ========================= */
-
-        .nature-card {
-            position: relative;
-            min-height: 440px;
-            border-radius: 28px;
-            overflow: hidden;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(41,74,54,.85),
-                    rgba(63,107,79,.72)
-                ),
-                linear-gradient(135deg, #71845a, #294a36);
-            box-shadow: 0 25px 60px rgba(41,74,54,.15);
-        }
-
-        .nature-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    circle at 70% 25%,
-                    rgba(255,255,255,.18),
-                    transparent 25%
-                ),
-                linear-gradient(
-                    130deg,
-                    transparent 40%,
-                    rgba(255,255,255,.05)
-                );
-        }
-
-        .leaf {
-            position: absolute;
-            border-radius: 100% 0 100% 0;
-            background: rgba(255,255,255,.08);
-            transform: rotate(25deg);
-        }
-
-        .leaf-1 {
-            width: 220px;
-            height: 100px;
-            right: -30px;
-            top: 40px;
-        }
-
-        .leaf-2 {
-            width: 280px;
-            height: 120px;
-            left: -70px;
-            bottom: 40px;
-            transform: rotate(-30deg);
-        }
-
-        .water-drop {
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            transform: translate(50%, -50%);
-            width: 130px;
-            height: 160px;
-            background: rgba(255,255,255,.12);
-            border: 1px solid rgba(255,255,255,.25);
-            border-radius: 70% 30% 65% 35%;
-            rotate: 45deg;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .water-drop i {
-            rotate: -45deg;
-            color: #dceee3;
-            font-size: 50px;
-        }
-
-        .hero-stat {
-            position: absolute;
-            bottom: 25px;
-            right: 25px;
-            left: 25px;
-            padding: 18px 20px;
-            border-radius: 16px;
-            background: rgba(255,255,255,.12);
-            border: 1px solid rgba(255,255,255,.15);
-            backdrop-filter: blur(10px);
-            color: white;
-        }
-
-        .hero-stat-title {
-            font-size: 11px;
-            opacity: .75;
-        }
-
-        .hero-stat-value {
-            font-size: 24px;
-            font-weight: 800;
-        }
-
-
-        /* =========================
-           STATS
-        ========================= */
-
-        .stats {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            border-top: 1px solid var(--border);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .stat {
-            padding: 28px 20px;
-            text-align: center;
-            border-left: 1px solid var(--border);
-        }
-
-        .stat:first-child {
-            border-left: none;
-        }
-
-        .stat strong {
-            display: block;
-            color: var(--green);
-            font-size: 27px;
-            font-weight: 800;
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-heading {
-            max-width: 680px;
-            margin-bottom: 50px;
-        }
-
-        .section-label {
-            color: var(--olive);
-            font-size: 12px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .section-heading h2 {
-            color: var(--green-dark);
-            font-size: 38px;
-            line-height: 1.4;
-            margin-bottom: 14px;
-        }
-
-        .section-heading p {
-            color: var(--muted);
-            font-size: 15px;
-        }
-
-
-        /* =========================
-           FEATURES
-        ========================= */
-
-        .features {
-            background: #f1f4ee;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .feature {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 18px;
-            transition: .3s;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(41,74,54,.08);
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 13px;
-            background: var(--green-light);
-            color: var(--green);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 19px;
-            margin-bottom: 22px;
-        }
-
-        .feature h3 {
-            color: var(--green-dark);
-            font-size: 19px;
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 2;
-        }
-
-
-        /* =========================
-           SCIENCE
-        ========================= */
-
-        .science-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .science-text h2 {
-            color: var(--green-dark);
-            font-size: 38px;
-            line-height: 1.45;
-            margin-bottom: 20px;
-        }
-
-        .science-text p {
-            color: var(--muted);
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
-
-        .check-list {
-            list-style: none;
-        }
-
-        .check-list li {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            color: #566259;
-            font-size: 14px;
-        }
-
-        .check-list i {
-            color: var(--green);
-            margin-top: 7px;
-        }
-
-
-        /* =========================
-           SIMPLE DATA CARD
-        ========================= */
-
-        .data-card {
-            background: var(--green-dark);
-            color: white;
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 25px 50px rgba(41,74,54,.15);
-        }
-
-        .data-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 35px;
-        }
-
-        .data-header span {
-            font-size: 11px;
-            opacity: .65;
-        }
-
-        .data-header i {
-            color: #9bc6a4;
-        }
-
-        .data-main {
-            margin-bottom: 30px;
-        }
-
-        .data-main small {
-            font-size: 11px;
-            opacity: .65;
-        }
-
-        .data-main strong {
-            display: block;
-            font-size: 42px;
-            line-height: 1.2;
-            margin-top: 5px;
-        }
-
-        .progress {
-            height: 7px;
-            background: rgba(255,255,255,.12);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .progress span {
-            display: block;
-            height: 100%;
-            width: 78%;
-            background: #9bc6a4;
-            border-radius: 20px;
-        }
-
-        .data-bottom {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .data-item {
-            background: rgba(255,255,255,.06);
-            padding: 13px;
-            border-radius: 10px;
-        }
-
-        .data-item small {
-            display: block;
-            opacity: .55;
-            font-size: 9px;
-        }
-
-        .data-item strong {
-            font-size: 16px;
-        }
-
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-            padding-top: 40px;
-        }
-
-        .cta-box {
-            background: var(--sand);
-            border-radius: 25px;
-            padding: 55px;
-            text-align: center;
-        }
-
-        .cta-box h2 {
-            color: var(--green-dark);
-            font-size: 34px;
-            margin-bottom: 12px;
-        }
-
-        .cta-box p {
-            color: #687165;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: var(--green-dark);
-            color: white;
-            padding: 35px 0;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .footer-logo {
-            font-weight: 800;
-        }
-
-        .footer-logo span {
-            color: #9bc6a4;
-        }
-
-        footer p {
-            color: rgba(255,255,255,.55);
-            font-size: 11px;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-grid,
-            .science-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding-top: 70px;
-            }
-
-            .hero-grid {
-                gap: 45px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat {
-                border-bottom: 1px solid var(--border);
-            }
-
-            .stat:nth-child(odd) {
-                border-left: 1px solid var(--border);
-            }
-
-            .stat:nth-child(even) {
-                border-left: none;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            .navbar {
-                min-height: 68px;
-            }
-
-            .nav-button {
-                display: none;
-            }
-
-            section {
-                padding: 70px 0;
-            }
-
-            .hero {
-                padding: 65px 0;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .nature-card {
-                min-height: 330px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .stat {
-                padding: 20px 10px;
-            }
-
-            .stat strong {
-                font-size: 22px;
-            }
-
-            .section-heading h2,
-            .science-text h2 {
-                font-size: 30px;
-            }
-
-            .cta-box {
-                padding: 35px 20px;
-            }
-
-            .cta-box h2 {
-                font-size: 28px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Hydro-Yemen | Intelligent Water for Smarter Agriculture</title>
+
+  <meta
+    name="description"
+    content="Hydro-Yemen delivers intelligent irrigation insights using satellite data, weather intelligence, and field-level water analysis."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --deep-green: #0b3d2e;
+      --green: #13795b;
+      --light-green: #dff5ea;
+      --mint: #effaf5;
+      --blue: #1687a7;
+      --sky: #eaf8fc;
+      --dark: #10231d;
+      --text: #53645e;
+      --white: #ffffff;
+      --border: #dcebe5;
+      --shadow: 0 20px 60px rgba(11, 61, 46, 0.10);
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(220, 235, 229, 0.7);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--deep-green);
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(145deg, var(--green), var(--blue));
+      box-shadow: 0 8px 20px rgba(19, 121, 91, 0.22);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+      border-radius: 12px;
+      background: var(--deep-green);
+      color: white !important;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 0 90px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(22, 135, 167, 0.12), transparent 30%),
+        radial-gradient(circle at 20% 40%, rgba(19, 121, 91, 0.12), transparent 35%),
+        linear-gradient(180deg, #f8fcfa 0%, #ffffff 100%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 50px;
+      background: var(--light-green);
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      margin-bottom: 25px;
+      color: var(--deep-green);
+    }
+
+    .hero h1 span {
+      color: var(--blue);
+    }
+
+    .hero-text {
+      max-width: 620px;
+      color: var(--text);
+      font-size: 1.08rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 14px 22px;
+      border-radius: 13px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .primary-btn {
+      background: var(--deep-green);
+      color: white;
+      box-shadow: 0 12px 25px rgba(11, 61, 46, 0.18);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .secondary-btn {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--deep-green);
+    }
+
+    .secondary-btn:hover {
+      background: var(--mint);
+    }
+
+    /* =========================
+       HERO DASHBOARD
+    ========================= */
+
+    .dashboard-wrap {
+      position: relative;
+    }
+
+    .dashboard {
+      position: relative;
+      padding: 20px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .dashboard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .dashboard-title {
+      font-weight: 800;
+      color: var(--deep-green);
+    }
+
+    .live {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .live::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .map {
+      height: 270px;
+      border-radius: 19px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(30deg, transparent 45%, rgba(255,255,255,.35) 46%, transparent 47%),
+        linear-gradient(150deg, transparent 45%, rgba(255,255,255,.25) 46%, transparent 47%),
+        linear-gradient(135deg, #9bcf9b, #6fae83 40%, #7ebd92 70%, #4e9674);
+      background-size: 70px 70px;
+    }
+
+    .field {
+      position: absolute;
+      border: 2px solid rgba(255,255,255,.8);
+      background: rgba(255,255,255,.12);
+      border-radius: 8px;
+    }
+
+    .field-1 {
+      width: 130px;
+      height: 85px;
+      top: 25px;
+      left: 30px;
+      transform: rotate(-8deg);
+    }
+
+    .field-2 {
+      width: 155px;
+      height: 105px;
+      top: 50px;
+      right: 25px;
+      transform: rotate(10deg);
+    }
+
+    .field-3 {
+      width: 170px;
+      height: 80px;
+      bottom: 25px;
+      left: 75px;
+      transform: rotate(4deg);
+    }
+
+    .map-label {
+      position: absolute;
+      background: white;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
+    }
+
+    .label-1 {
+      top: 30px;
+      right: 40px;
+    }
+
+    .label-2 {
+      bottom: 35px;
+      left: 30px;
+    }
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--mint);
+    }
+
+    .stat small {
+      display: block;
+      color: var(--text);
+      font-size: 0.68rem;
+      margin-bottom: 3px;
+    }
+
+    .stat strong {
+      font-size: 1rem;
+      color: var(--deep-green);
+    }
+
+    /* =========================
+       TRUST BAR
+    ========================= */
+
+    .trust-bar {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 45px;
+      flex-wrap: wrap;
+      color: #70817b;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .precision {
+      color: var(--deep-green);
+      font-weight: 800;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--deep-green);
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--text);
+    }
+
+    /* =========================
+       CORE TECHNOLOGY
+    ========================= */
+
+    .technology {
+      background: var(--mint);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .precision-card {
+      background: var(--deep-green);
+      color: white;
+      padding: 45px;
+      border-radius: 28px;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+    }
+
+    .precision-number {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(4.5rem, 9vw, 7rem);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+    }
+
+    .precision-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .precision-card p {
+      color: rgba(255,255,255,.72);
+      font-size: 0.9rem;
+    }
+
+    .tech-content h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 18px;
+      color: var(--deep-green);
+    }
+
+    .tech-content > p {
+      color: var(--text);
+      margin-bottom: 30px;
+    }
+
+    .tech-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .tech-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .tech-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      border-radius: 11px;
+      background: white;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .tech-item strong {
+      display: block;
+      color: var(--deep-green);
+      margin-bottom: 2px;
+    }
+
+    .tech-item span {
+      color: var(--text);
+      font-size: 0.87rem;
+    }
+
+    /* =========================
+       FEATURES
+    ========================= */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .feature-card {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: 0.3s ease;
+      background: white;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: transparent;
+    }
+
+    .feature-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--light-green);
+      color: var(--green);
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .feature-card h3 {
+      font-family: "Manrope", sans-serif;
+      font-size: 1.35rem;
+      color: var(--deep-green);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .feature-tag {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: var(--sky);
+      color: var(--blue);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      background: #f8fbfa;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .process-card {
+      padding: 28px 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .process-card span {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--deep-green);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .process-card h4 {
+      color: var(--deep-green);
+      margin-bottom: 8px;
+    }
+
+    .process-card p {
+      color: var(--text);
+      font-size: 0.82rem;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 90px 0;
+    }
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      padding: 65px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(22,135,167,.45), transparent 35%),
+        var(--deep-green);
+      color: white;
+    }
+
+    .cta-box h2 {
+      font-family: "Manrope", sans-serif;
+      max-width: 650px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .cta-box p {
+      max-width: 620px;
+      color: rgba(255,255,255,.72);
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 22px;
+      background: white;
+      color: var(--deep-green);
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      color: #72827d;
+      font-size: 0.8rem;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      color: var(--deep-green);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .dashboard-wrap {
+        max-width: 650px;
+        margin: auto;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 75px 0;
+      }
+
+      .hero {
+        padding-bottom: 65px;
+      }
+
+      .hero h1 {
+        font-size: 2.65rem;
+      }
+
+      .features-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .precision-card {
+        padding: 32px;
+      }
+
+      .cta-box {
+        padding: 38px 28px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .dashboard-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-<!-- =========================
-     NAVBAR
-========================= -->
+  <nav>
+    <div class="container nav-inner">
 
-<header>
+      <a href="#" class="logo">
+        <span class="logo-mark">💧</span>
+        Hydro-Yemen
+      </a>
 
-    <div class="container navbar">
-
-        <a href="#" class="logo">
-
-            <div class="logo-icon">
-                <i class="fa-solid fa-droplet"></i>
-            </div>
-
-            <div class="logo-text">
-                HYDRO-YEMEN
-                <small>إدارة المياه الذكية</small>
-            </div>
-
-        </a>
-
-
-        <nav class="nav-links">
-
-            <a href="#about">من نحن</a>
-            <a href="#services">الخدمات</a>
-            <a href="#science">التقنية</a>
-            <a href="#contact">تواصل معنا</a>
-
-        </nav>
-
-
-        <a href="#contact" class="nav-button">
-            ابدأ الآن
-        </a>
+      <div class="nav-links">
+        <a href="#technology">Technology</a>
+        <a href="#features">Solutions</a>
+        <a href="#process">How It Works</a>
+        <a href="#contact" class="nav-button">Get Started</a>
+      </div>
 
     </div>
-
-</header>
-
+  </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
-<section class="hero">
+  <header class="hero">
 
     <div class="container hero-grid">
 
-        <div>
+      <div>
 
-            <div class="hero-label">
-                <span></span>
-                حلول ذكية لإدارة المياه
-            </div>
-
-
-            <h1>
-                نراقب المياه،
-                <br>
-                <strong>نفهم الأرض،</strong>
-                <br>
-                ونحسن الري.
-            </h1>
-
-
-            <p class="hero-description">
-                منصة Hydro-Yemen تستخدم تقنيات الأقمار الصناعية
-                وتحليل البيانات لمساعدة المزارعين والمؤسسات على
-                فهم استهلاك المياه وتحسين كفاءة الري.
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a href="#services" class="btn-primary">
-                    اكتشف خدماتنا
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-
-                <a href="#science" class="btn-secondary">
-                    كيف تعمل التقنية؟
-                </a>
-
-            </div>
-
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Intelligent Irrigation Technology
         </div>
 
-
-        <!-- Visual -->
-
-        <div class="nature-card">
-
-            <div class="leaf leaf-1"></div>
-            <div class="leaf leaf-2"></div>
-
-
-            <div class="water-drop">
-                <i class="fa-solid fa-droplet"></i>
-            </div>
-
-
-            <div class="hero-stat">
-
-                <div class="hero-stat-title">
-                    مؤشر استخدام المياه
-                </div>
-
-                <div class="hero-stat-value">
-                    78%
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<div class="stats">
-
-    <div class="container stats-grid">
-
-        <div class="stat">
-            <strong>10 م</strong>
-            <span>الدقة المكانية</span>
-        </div>
-
-        <div class="stat">
-            <strong>ETₐ</strong>
-            <span>النتح الفعلي</span>
-        </div>
-
-        <div class="stat">
-            <strong>SEBAL</strong>
-            <span>التحليل الحراري</span>
-        </div>
-
-        <div class="stat">
-            <strong>24/7</strong>
-            <span>تحليل البيانات</span>
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section id="about">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                من نحن
-            </div>
-
-            <h2>
-                تقنية بسيطة لاتخاذ
-                قرارات أفضل للمياه
-            </h2>
-
-            <p>
-                نعمل على تحويل البيانات الجغرافية والفضائية
-                إلى معلومات واضحة تساعد على فهم حالة المياه
-                واتخاذ قرارات أكثر دقة.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     SERVICES
-========================= -->
-
-<section id="services" class="features">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                خدماتنا
-            </div>
-
-            <h2>
-                حلول مصممة للبيئة والزراعة
-            </h2>
-
-            <p>
-                مجموعة من الأدوات التحليلية لمراقبة المياه
-                وتحسين استخدام الموارد الطبيعية.
-            </p>
-
-        </div>
-
-
-        <div class="feature-grid">
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-satellite"></i>
-                </div>
-
-                <h3>
-                    تحليل الأقمار الصناعية
-                </h3>
-
-                <p>
-                    استخدام الصور الفضائية لمراقبة الأراضي
-                    الزراعية وتحليل التغيرات المكانية بدقة.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-droplet"></i>
-                </div>
-
-                <h3>
-                    تحليل استهلاك المياه
-                </h3>
-
-                <p>
-                    تقدير الاحتياجات المائية ومتابعة استخدام
-                    المياه للمساعدة في تحسين كفاءة الري.
-                </p>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
-
-                <h3>
-                    تحليلات الأحواض المائية
-                </h3>
-
-                <p>
-                    تقارير ومؤشرات تساعد المؤسسات على فهم
-                    وضع الموارد المائية على نطاق واسع.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     SCIENCE
-========================= -->
-
-<section id="science">
-
-    <div class="container science-grid">
-
-
-        <div class="science-text">
-
-            <div class="section-label">
-                الإطار العلمي
-            </div>
-
-            <h2>
-                نفهم الأرض من خلال
-                بصمتها الحرارية
-            </h2>
-
-            <p>
-                تعتمد المنصة على بيانات الاستشعار عن بعد
-                ومبادئ ميزان الطاقة الحراري لتحليل حالة
-                الأراضي والمياه واستخراج مؤشرات تساعد
-                في إدارة الري.
-            </p>
-
-
-            <ul class="check-list">
-
-                <li>
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>
-                        تحليل مكاني عالي الدقة يصل إلى 10 أمتار.
-                    </span>
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>
-                        مراقبة النتح والتبخر الفعلي للمحاصيل.
-                    </span>
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>
-                        مؤشرات واضحة لدعم قرارات الري.
-                    </span>
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>
-                        إمكانية التحليل على مستوى الحقل والحوض المائي.
-                    </span>
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- DATA CARD -->
-
-        <div class="data-card">
-
-            <div class="data-header">
-
-                <span>
-                    تحليل مائي
-                </span>
-
-                <i class="fa-solid fa-chart-simple"></i>
-
-            </div>
-
-
-            <div class="data-main">
-
-                <small>
-                    مؤشر كفاءة استخدام المياه
-                </small>
-
-                <strong>
-                    78%
-                </strong>
-
-                <div class="progress">
-                    <span></span>
-                </div>
-
-            </div>
-
-
-            <div class="data-bottom">
-
-                <div class="data-item">
-                    <small>الدقة</small>
-                    <strong>10م</strong>
-                </div>
-
-                <div class="data-item">
-                    <small>النتح</small>
-                    <strong>6.8</strong>
-                </div>
-
-                <div class="data-item">
-                    <small>الحالة</small>
-                    <strong>جيدة</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section id="contact" class="cta">
-
-    <div class="container">
-
-        <div class="cta-box">
-
-            <h2>
-                لنستخدم المياه بشكل أذكى
-            </h2>
-
-            <p>
-                إذا كنت تعمل في الزراعة أو إدارة الموارد المائية،
-                يمكننا مساعدتك في تحويل البيانات إلى قرارات عملية.
-            </p>
-
-            <a href="mailto:contact@hydro-yemen.com" class="btn-primary">
-                <i class="fa-solid fa-envelope"></i>
-                تواصل معنا
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="container footer-content">
-
-        <div class="footer-logo">
-            HYDRO<span>-YEMEN</span>
-        </div>
-
-        <p>
-            © 2026 Hydro-Yemen — حلول ذكية لإدارة المياه
+        <h1>
+          Smarter Water.
+          <span>Healthier Fields.</span>
+        </h1>
+
+        <p class="hero-text">
+          Hydro-Yemen transforms satellite intelligence, weather data,
+          and agricultural analytics into precise irrigation decisions
+          for every section of your farm.
         </p>
 
-        <div>
-            <i class="fa-solid fa-leaf" style="color:#9bc6a4;"></i>
+        <div class="hero-buttons">
+          <a href="#features" class="primary-btn">
+            Explore IrriNow™
+          </a>
+
+          <a href="#technology" class="secondary-btn">
+            Discover the Technology
+          </a>
         </div>
+
+      </div>
+
+
+      <!-- Dashboard -->
+
+      <div class="dashboard-wrap">
+
+        <div class="dashboard">
+
+          <div class="dashboard-top">
+
+            <div>
+              <div class="dashboard-title">
+                IrriNow™ Farm Intelligence
+              </div>
+              <small style="color:#70817b;">
+                Today's field status
+              </small>
+            </div>
+
+            <div class="live">
+              Live Analysis
+            </div>
+
+          </div>
+
+          <div class="map">
+
+            <div class="field field-1"></div>
+            <div class="field field-2"></div>
+            <div class="field field-3"></div>
+
+            <div class="map-label label-1">
+              Section B · 72% moisture
+            </div>
+
+            <div class="map-label label-2">
+              Section A · Irrigation needed
+            </div>
+
+          </div>
+
+          <div class="dashboard-stats">
+
+            <div class="stat">
+              <small>Spatial Resolution</small>
+              <strong>10 m / pixel</strong>
+            </div>
+
+            <div class="stat">
+              <small>Water Demand</small>
+              <strong>42 mm</strong>
+            </div>
+
+            <div class="stat">
+              <small>Next Irrigation</small>
+              <strong>06:15 AM</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
-</footer>
+  </header>
 
+
+  <!-- =========================
+       TRUST BAR
+  ========================= -->
+
+  <div class="trust-bar">
+
+    <div class="container trust-content">
+
+      <span>
+        Built for modern agriculture
+      </span>
+
+      <span class="precision">
+        10-Meter Satellite Resolution
+      </span>
+
+      <span>
+        Field-Level Water Intelligence
+      </span>
+
+      <span>
+        Weather-Aware Planning
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       TECHNOLOGY
+  ========================= -->
+
+  <section id="technology" class="technology">
+
+    <div class="container tech-grid">
+
+      <div class="precision-card">
+
+        <div>
+          <div class="precision-number">10m</div>
+
+          <p style="margin-top:12px;">
+            Spatial resolution
+          </p>
+        </div>
+
+        <div>
+          <h3>
+            Energy Flux Core
+          </h3>
+
+          <p>
+            A high-resolution spatial intelligence layer designed
+            to understand agricultural conditions at field level.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="tech-content">
+
+        <div class="eyebrow">
+          Core Technology
+        </div>
+
+        <h3>
+          From satellite pixels to irrigation decisions.
+        </h3>
+
+        <p>
+          Hydro-Yemen's processing engine combines high-resolution
+          satellite mapping with optical and thermal observations,
+          regional weather intelligence, and agricultural models.
+          This enables detailed analysis of surface conditions and
+          water demand across individual field zones.
+        </p>
+
+        <div class="tech-list">
+
+          <div class="tech-item">
+            <div class="tech-icon">01</div>
+            <div>
+              <strong>10-Meter Spatial Detail</strong>
+              <span>
+                Analyze agricultural land at a fine spatial scale
+                instead of treating an entire farm as one unit.
+              </span>
+            </div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon">02</div>
+            <div>
+              <strong>Satellite + Weather Intelligence</strong>
+              <span>
+                Combine Earth observation data with regional
+                meteorological conditions.
+              </span>
+            </div>
+          </div>
+
+          <div class="tech-item">
+            <div class="tech-icon">03</div>
+            <div>
+              <strong>Field-Level Water Analysis</strong>
+              <span>
+                Translate complex environmental data into
+                practical irrigation insights.
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FEATURES
+  ========================= -->
+
+  <section id="features">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          IrriNow™ Intelligence
+        </div>
+
+        <h2>
+          Every morning. Every section. One clear irrigation plan.
+        </h2>
+
+        <p>
+          IrriNow™ turns complex satellite and agricultural data
+          into simple operational guidance for farmers and
+          agricultural managers.
+        </p>
+
+      </div>
+
+
+      <div class="features-grid">
+
+        <!-- Feature 01 -->
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            01
+          </div>
+
+          <h3>
+            Daily Dawn Briefing
+          </h3>
+
+          <p>
+            Before sunrise, IrriNow™ delivers a comprehensive
+            update on your farm's status, section-by-section.
+            The system analyzes each agricultural polygon according
+            to its actual irrigation requirements and turns
+            satellite observations into a practical morning action plan.
+          </p>
+
+          <span class="feature-tag">
+            SECTION-BY-SECTION
+          </span>
+
+        </article>
+
+
+        <!-- Feature 02 -->
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            02
+          </div>
+
+          <h3>
+            Weekly Outlook
+          </h3>
+
+          <p>
+            Plan ahead with a seven-day water forecast.
+            IrriNow™ combines forecasted weather dynamics with
+            crop growth patterns to anticipate water consumption
+            and establish an optimized irrigation schedule.
+          </p>
+
+          <span class="feature-tag">
+            7-DAY PREDICTIVE PLANNING
+          </span>
+
+        </article>
+
+
+        <!-- Feature 03 -->
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            03
+          </div>
+
+          <h3>
+            Root-Zone Intelligence
+          </h3>
+
+          <p>
+            Understand changing field conditions through detailed
+            spatial analysis. Instead of relying on a single
+            farm-wide estimate, the platform helps identify
+            differences between individual field zones.
+          </p>
+
+          <span class="feature-tag">
+            FIELD-LEVEL ANALYSIS
+          </span>
+
+        </article>
+
+
+        <!-- Feature 04 -->
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            04
+          </div>
+
+          <h3>
+            Water Efficiency
+          </h3>
+
+          <p>
+            Use irrigation resources more intelligently by
+            aligning irrigation planning with observed field
+            conditions, crop development, and upcoming weather.
+          </p>
+
+          <span class="feature-tag">
+            SMART WATER MANAGEMENT
+          </span>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROCESS
+  ========================= -->
+
+  <section id="process" class="process">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          How It Works
+        </div>
+
+        <h2>
+          Turning Earth observation into action.
+        </h2>
+
+        <p>
+          Hydro-Yemen simplifies a complex analytical workflow
+          into a clear decision-making process.
+        </p>
+
+      </div>
+
+
+      <div class="process-grid">
+
+        <div class="process-card">
+          <span>01</span>
+          <h4>Observe</h4>
+          <p>
+            High-resolution satellite observations capture
+            field conditions across agricultural areas.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span>02</span>
+          <h4>Analyze</h4>
+          <p>
+            Spatial and environmental models analyze
+            field-level water and energy dynamics.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span>03</span>
+          <h4>Predict</h4>
+          <p>
+            Weather forecasts and crop development help
+            anticipate upcoming irrigation requirements.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <span>04</span>
+          <h4>Act</h4>
+          <p>
+            Farmers receive practical irrigation insights
+            they can use to plan the next action.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CTA
+  ========================= -->
+
+  <section id="contact" class="cta">
+
+    <div class="container">
+
+      <div class="cta-box">
+
+        <div class="eyebrow" style="color:#7dd3bd;">
+          The Future of Irrigation
+        </div>
+
+        <h2>
+          Make every drop count.
+        </h2>
+
+        <p>
+          Hydro-Yemen is building a new generation of agricultural
+          intelligence for water-conscious farming in arid and
+          semi-arid environments.
+        </p>
+
+        <a href="mailto:info@hydro-yemen.com" class="cta-btn">
+          Contact Hydro-Yemen
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        Hydro-Yemen
+      </div>
+
+      <div>
+        Intelligent Agriculture · Smart Water · Better Decisions
+      </div>
+
+      <div>
+        © 2026 Hydro-Yemen
+      </div>
+
+    </div>
+
+  </footer>
 
 </body>
 </html>
-```
