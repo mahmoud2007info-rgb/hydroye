@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Hydro-Yemen | Intelligent Water for Smarter Agriculture</title>
-
-  <meta
-    name="description"
-    content="Hydro-Yemen delivers intelligent irrigation insights using satellite data, weather intelligence, and field-level water analysis."
-  />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Flux Core: Satellite Thermal Energy Balance | Hydro-Yemen</title>
+  <meta name="description" content="Our core processing engine is built on the Surface Energy Balance Algorithm for Land (SEBAL), specifically optimized for the arid and semi-arid climates of the Middle East and Africa. By combining spaceborne thermal infrared data with GFS weather-derived Net Radiation (Rn), the engine maps the true Evaporative Fraction (Λ). This energy-balance approach measures actual crop water consumption (ETa) directly from the thermal footprint of the landscape, delivering reliable metrics under high-heat environments.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --deep-green: #0b3d2e;
@@ -740,531 +730,161 @@
         grid-template-columns: 1fr;
       }
     }
+  
+    .detail-hero {
+      min-height: 78vh;
+      padding: 145px 0 90px;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(22,135,167,.14), transparent 30%),
+        radial-gradient(circle at 18% 45%, rgba(19,121,91,.13), transparent 34%),
+        linear-gradient(180deg,#f8fcfa 0%,#fff 100%);
+    }
+    .detail-grid {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:70px;
+      align-items:center;
+    }
+    .detail-title {
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(2.4rem,5vw,4.7rem);
+      line-height:1.04;
+      letter-spacing:-.055em;
+      color:var(--deep-green);
+      margin-bottom:24px;
+    }
+    .detail-copy {
+      max-width:760px;
+      color:var(--text);
+      font-size:1.05rem;
+      margin-bottom:30px;
+    }
+    .detail-copy code {
+      background:var(--sky);
+      color:var(--blue);
+      padding:2px 6px;
+      border-radius:6px;
+      font-family:monospace;
+      font-weight:700;
+    }
+    .metric-panel {
+      background:var(--deep-green);
+      color:#fff;
+      border-radius:30px;
+      padding:42px;
+      min-height:330px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .metric {
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(3.5rem,7vw,6rem);
+      line-height:.95;
+      letter-spacing:-.06em;
+      font-weight:800;
+    }
+    .metric-label {
+      color:rgba(255,255,255,.72);
+      max-width:260px;
+    }
+    .detail-section {
+      padding:95px 0;
+    }
+    .detail-section h2 {
+      font-family:"Manrope",sans-serif;
+      color:var(--deep-green);
+      font-size:2.5rem;
+      letter-spacing:-.04em;
+      margin-bottom:40px;
+    }
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .back {
+      display:inline-block;
+      margin-top:25px;
+      padding:12px 18px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      font-weight:700;
+      color:var(--deep-green);
+      background:#fff;
+    }
+    @media(max-width:900px) {
+      .detail-grid,.cards {grid-template-columns:1fr;}
+      .detail-hero {padding-top:120px;}
+    }
   </style>
 </head>
-
 <body>
-
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
-
   <nav>
     <div class="container nav-inner">
-
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-mark">💧</span>
         Hydro-Yemen
       </a>
-
       <div class="nav-links">
         <a href="irrinow.html">IrriNow™</a>
         <a href="energy-flux-core.html">Energy Flux Core</a>
         <a href="biomass-crop-health.html">Biomass & Crop Health</a>
         <a href="basin-scale-advisory.html">Basin-Scale Advisory</a>
       </div>
-
     </div>
   </nav>
 
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
-  <header class="hero">
-
-    <div class="container hero-grid">
-
-      <div>
-
-        <div class="badge">
-          <span class="badge-dot"></span>
-          Intelligent Irrigation Technology
-        </div>
-
-        <h1>
-          Smarter Water.
-          <span>Healthier Fields.</span>
-        </h1>
-
-        <p class="hero-text">
-          Hydro-Yemen transforms satellite intelligence, weather data,
-          and agricultural analytics into precise irrigation decisions
-          for every section of your farm.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="irrinow.html" class="primary-btn">
-            Explore IrriNow™
-          </a>
-
-          <a href="energy-flux-core.html" class="secondary-btn">
-            Discover the Technology
-          </a>
-        </div>
-
-      </div>
-
-
-      <!-- Dashboard -->
-
-      <div class="dashboard-wrap">
-
-        <div class="dashboard">
-
-          <div class="dashboard-top">
-
-            <div>
-              <div class="dashboard-title">
-                IrriNow™ Farm Intelligence
-              </div>
-              <small style="color:#70817b;">
-                Today's field status
-              </small>
-            </div>
-
-            <div class="live">
-              Live Analysis
-            </div>
-
-          </div>
-
-          <div class="map">
-
-            <div class="field field-1"></div>
-            <div class="field field-2"></div>
-            <div class="field field-3"></div>
-
-            <div class="map-label label-1">
-              Section B · 72% moisture
-            </div>
-
-            <div class="map-label label-2">
-              Section A · Irrigation needed
-            </div>
-
-          </div>
-
-          <div class="dashboard-stats">
-
-            <div class="stat">
-              <small>Spatial Resolution</small>
-              <strong>10 m / pixel</strong>
-            </div>
-
-            <div class="stat">
-              <small>Water Demand</small>
-              <strong>42 mm</strong>
-            </div>
-
-            <div class="stat">
-              <small>Next Irrigation</small>
-              <strong>06:15 AM</strong>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </header>
-
-
-  <!-- =========================
-       TRUST BAR
-  ========================= -->
-
-  <div class="trust-bar">
-
-    <div class="container trust-content">
-
-      <span>
-        Built for modern agriculture
-      </span>
-
-      <span class="precision">
-        10-Meter Satellite Resolution
-      </span>
-
-      <span>
-        Field-Level Water Intelligence
-      </span>
-
-      <span>
-        Weather-Aware Planning
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================
-       TECHNOLOGY
-  ========================= -->
-
-  <section id="technology" class="technology">
-
-    <div class="container tech-grid">
-
-      <div class="precision-card">
-
+  <main>
+    <section class="detail-hero">
+      <div class="container detail-grid">
         <div>
-          <div class="precision-number">10m</div>
-
-          <p style="margin-top:12px;">
-            Spatial resolution
-          </p>
+          <div class="eyebrow">Energy Flux Core · Pure SEBAL</div>
+          <h1 class="detail-title">Energy Flux Core: Satellite Thermal Energy Balance</h1>
+          <p class="detail-copy">Our core processing engine is built on the Surface Energy Balance Algorithm for Land (SEBAL), specifically optimized for the arid and semi-arid climates of the Middle East and Africa. By combining spaceborne thermal infrared data with GFS weather-derived Net Radiation (<code>R<sub>n</sub></code>), the engine maps the true Evaporative Fraction (<code>Λ</code>). This energy-balance approach measures actual crop water consumption (<code>ET<sub>a</sub></code>) directly from the thermal footprint of the landscape, delivering reliable metrics under high-heat environments.</p>
+          <a href="index.html" class="back">← Back to Hydro-Yemen</a>
         </div>
-
-        <div>
-          <h3>
-            Energy Flux Core
-          </h3>
-
-          <p>
-            A high-resolution spatial intelligence layer designed
-            to understand agricultural conditions at field level.
-          </p>
-        </div>
-
-      </div>
-
-
-      <div class="tech-content">
-
-        <div class="eyebrow">
-          Core Technology
-        </div>
-
-        <h3>
-          From satellite pixels to irrigation decisions.
-        </h3>
-
-        <p>
-          Hydro-Yemen's processing engine combines high-resolution
-          satellite mapping with optical and thermal observations,
-          regional weather intelligence, and agricultural models.
-          This enables detailed analysis of surface conditions and
-          water demand across individual field zones.
-        </p>
-
-        <div class="tech-list">
-
-          <div class="tech-item">
-            <div class="tech-icon">01</div>
-            <div>
-              <strong>10-Meter Spatial Detail</strong>
-              <span>
-                Analyze agricultural land at a fine spatial scale
-                instead of treating an entire farm as one unit.
-              </span>
-            </div>
+        <div class="metric-panel">
+          <div class="metric">SEBAL</div>
+          <div>
+            <div class="metric-label">Surface Energy Balance Algorithm for Land</div>
           </div>
-
-          <div class="tech-item">
-            <div class="tech-icon">02</div>
-            <div>
-              <strong>Satellite + Weather Intelligence</strong>
-              <span>
-                Combine Earth observation data with regional
-                meteorological conditions.
-              </span>
-            </div>
-          </div>
-
-          <div class="tech-item">
-            <div class="tech-icon">03</div>
-            <div>
-              <strong>Field-Level Water Analysis</strong>
-              <span>
-                Translate complex environmental data into
-                practical irrigation insights.
-              </span>
-            </div>
-          </div>
-
         </div>
-
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FEATURES
-  ========================= -->
-
-  <section id="features">
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <div class="eyebrow">
-          IrriNow™ Intelligence
+    <section class="detail-section">
+      <div class="container">
+        <div class="eyebrow">Capabilities</div>
+        <h2>Built to turn complex data into practical intelligence.</h2>
+        <div class="cards">
+          <article class="feature-card">
+            <div class="feature-number">01</div>
+            <h3>Thermal Infrared</h3>
+            <p>Use spaceborne thermal observations to characterize the thermal footprint of agricultural landscapes.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-number">02</div>
+            <h3>Net Radiation</h3>
+            <p>Integrate GFS weather-derived Net Radiation into the energy-balance workflow.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-number">03</div>
+            <h3>Actual ET</h3>
+            <p>Estimate actual crop water consumption through the modeled surface energy balance.</p>
+          </article>
         </div>
-
-        <h2>
-          Every morning. Every section. One clear irrigation plan.
-        </h2>
-
-        <p>
-          IrriNow™ turns complex satellite and agricultural data
-          into simple operational guidance for farmers and
-          agricultural managers.
-        </p>
-
       </div>
-
-
-      <div class="features-grid">
-
-        <!-- Feature 01 -->
-
-        <article class="feature-card">
-
-          <div class="feature-number">
-            01
-          </div>
-
-          <h3>
-            Daily Dawn Briefing
-          </h3>
-
-          <p>
-            Before sunrise, IrriNow™ delivers a comprehensive
-            update on your farm's status, section-by-section.
-            The system analyzes each agricultural polygon according
-            to its actual irrigation requirements and turns
-            satellite observations into a practical morning action plan.
-          </p>
-
-          <span class="feature-tag">
-            SECTION-BY-SECTION
-          </span>
-
-        </article>
-
-
-        <!-- Feature 02 -->
-
-        <article class="feature-card">
-
-          <div class="feature-number">
-            02
-          </div>
-
-          <h3>
-            Weekly Outlook
-          </h3>
-
-          <p>
-            Plan ahead with a seven-day water forecast.
-            IrriNow™ combines forecasted weather dynamics with
-            crop growth patterns to anticipate water consumption
-            and establish an optimized irrigation schedule.
-          </p>
-
-          <span class="feature-tag">
-            7-DAY PREDICTIVE PLANNING
-          </span>
-
-        </article>
-
-
-        <!-- Feature 03 -->
-
-        <article class="feature-card">
-
-          <div class="feature-number">
-            03
-          </div>
-
-          <h3>
-            Root-Zone Intelligence
-          </h3>
-
-          <p>
-            Understand changing field conditions through detailed
-            spatial analysis. Instead of relying on a single
-            farm-wide estimate, the platform helps identify
-            differences between individual field zones.
-          </p>
-
-          <span class="feature-tag">
-            FIELD-LEVEL ANALYSIS
-          </span>
-
-        </article>
-
-
-        <!-- Feature 04 -->
-
-        <article class="feature-card">
-
-          <div class="feature-number">
-            04
-          </div>
-
-          <h3>
-            Water Efficiency
-          </h3>
-
-          <p>
-            Use irrigation resources more intelligently by
-            aligning irrigation planning with observed field
-            conditions, crop development, and upcoming weather.
-          </p>
-
-          <span class="feature-tag">
-            SMART WATER MANAGEMENT
-          </span>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       PROCESS
-  ========================= -->
-
-  <section id="process" class="process">
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <div class="eyebrow">
-          How It Works
-        </div>
-
-        <h2>
-          Turning Earth observation into action.
-        </h2>
-
-        <p>
-          Hydro-Yemen simplifies a complex analytical workflow
-          into a clear decision-making process.
-        </p>
-
-      </div>
-
-
-      <div class="process-grid">
-
-        <div class="process-card">
-          <span>01</span>
-          <h4>Observe</h4>
-          <p>
-            High-resolution satellite observations capture
-            field conditions across agricultural areas.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <span>02</span>
-          <h4>Analyze</h4>
-          <p>
-            Spatial and environmental models analyze
-            field-level water and energy dynamics.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <span>03</span>
-          <h4>Predict</h4>
-          <p>
-            Weather forecasts and crop development help
-            anticipate upcoming irrigation requirements.
-          </p>
-        </div>
-
-        <div class="process-card">
-          <span>04</span>
-          <h4>Act</h4>
-          <p>
-            Farmers receive practical irrigation insights
-            they can use to plan the next action.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CTA
-  ========================= -->
-
-  <section id="contact" class="cta">
-
-    <div class="container">
-
-      <div class="cta-box">
-
-        <div class="eyebrow" style="color:#7dd3bd;">
-          The Future of Irrigation
-        </div>
-
-        <h2>
-          Make every drop count.
-        </h2>
-
-        <p>
-          Hydro-Yemen is building a new generation of agricultural
-          intelligence for water-conscious farming in arid and
-          semi-arid environments.
-        </p>
-
-        <a href="mailto:info@hydro-yemen.com" class="cta-btn">
-          Contact Hydro-Yemen
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
+    </section>
+  </main>
 
   <footer>
-
     <div class="container footer-inner">
-
-      <div class="footer-brand">
-        Hydro-Yemen
-      </div>
-
-      <div>
-        Intelligent Agriculture · Smart Water · Better Decisions
-      </div>
-
-      <div>
-        © 2026 Hydro-Yemen
-      </div>
-
+      <div class="footer-brand">Hydro-Yemen</div>
+      <div>Intelligent Agriculture · Smart Water · Better Decisions</div>
+      <div>© 2026 Hydro-Yemen</div>
     </div>
-
   </footer>
-
 </body>
 </html>
